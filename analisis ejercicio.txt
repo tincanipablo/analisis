@@ -1,0 +1,33 @@
+El proceso para n = 371844285230994047
+Para números tan grandes, la longitud del número no afecta al resultado del módulo 2701 de manera sencilla. 
+En lugar de computar el número completo, podemos analizar el patrón de los dígitos y su repetición:
+
+Para números con patrones repetitivos:
+
+La cadena repetitiva "371844285230994047" tiene una longitud de 18 dígitos.
+Para simplificar, primero calculemos 371844285230994047 % 2701.
+Hacemos esto con Python para manejar grandes números.
+
+M = 2701
+pattern = "371844285230994047"
+n = 371844285230994047
+pattern_num = int(pattern)
+length = len(pattern)
+
+# Calculate repetition count and remainder
+repetitions = n // length
+remainder_digits = n % length
+
+# Modular arithmetic for repeated pattern
+mod_pattern = pattern_num % M
+mod_repetitions = (mod_pattern * repetitions) % M
+
+# For remaining part
+remaining_part = pattern[:remainder_digits]
+mod_remainder = int(remaining_part) % M if remaining_part else 0
+
+# Final result
+result = (mod_repetitions + mod_remainder) % M
+print(result)
+
+693
